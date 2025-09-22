@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Recordatorios Personalizados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Recordatorios Personalizados</h1>
+            <p>Sistema CRUD sin actualización de página</p>
+        </header>
+
+        <!-- Formulario para crear/editar recordatorios -->
+        <section class="form-section">
+            <div class="form-container">
+                <h2 id="form-title">✨ Crear Nuevo Recordatorio</h2>
+                <form id="recordatorio-form">
+                    <input type="hidden" id="recordatorio-id" value="">
+                    
+                    <div class="input-group">
+                        <label for="titulo">Título:</label>
+                        <input 
+                            type="text" 
+                            id="titulo" 
+                            placeholder="Ingresa el título del recordatorio..."
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="contenido">Contenido:</label>
+                        <textarea 
+                            id="contenido" 
+                            rows="4" 
+                            placeholder="Escribe el contenido del recordatorio..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" id="submit-btn">
+                            💾 Guardar Recordatorio
+                        </button>
+                        <button type="button" id="cancel-btn" style="display: none;">
+                            ❌ Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Lista de recordatorios -->
+        <section class="recordatorios-section">
+            <div class="section-header">
+                <h2>📋 Mis Recordatorios</h2>
+                <div class="stats">
+                    <span id="total-recordatorios">Total: 0</span>
+                </div>
+            </div>
+
+            <!-- Contenedor de mensajes -->
+            <div id="message-container"></div>
+
+            <!-- Loading indicator -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Cargando recordatorios...</p>
+            </div>
+
+            <!-- Lista de recordatorios -->
+            <div id="recordatorios-lista" class="recordatorios-grid">
+                <!-- Los recordatorios se cargarán aquí dinámicamente -->
+            </div>
+
+            <!-- Mensaje cuando no hay recordatorios -->
+            <div id="no-recordatorios" class="no-content" style="display: none;">
+                <div class="no-content-icon">📝</div>
+                <h3>No tienes recordatorios</h3>
+                <p>¡Crea tu primer recordatorio usando el formulario de arriba!</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de confirmación para eliminar -->
+    <div id="delete-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>🗑️ Confirmar eliminación</h3>
+            <p>¿Estás seguro de que deseas eliminar este recordatorio?</p>
+            <div class="modal-buttons">
+                <button id="confirm-delete" class="btn-danger">
+                    🗑️ Sí, eliminar
+                </button>
+                <button id="cancel-delete" class="btn-secondary">
+                    ❌ Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
